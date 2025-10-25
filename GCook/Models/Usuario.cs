@@ -3,17 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 namespace GCook.Models;
 
-[Table("Usuário")]
-    public class Usuario : IdentityUser 
-    {
-        [StringLength(50)]
-        [Required(ErrorMessage = "O Nome é obrigatório")]
-        public string Nome { get; set; }
+[Table("Usuario")]
+public class Usuario : IdentityUser
+{
+    [StringLength(50)]
+    [Required(ErrorMessage = "O Nome é obrigatório")]
+    public string Nome { get; set; }
 
-        [DataType(DataType.Date)]
-        [Display(Name = "Data de Nascimento")]
-        public DateTime DataNascimento { get; set; }
+    [DataType(DataType.Date)]
+    [Display(Name = "Data de Nascimento")]
+    public DateTime DataNascimento { get; set; }
 
-        [StringLength(300)]
-        public string Foto { get; set; }
-    }
+    [StringLength(300)]
+    public string Foto { get; set; }
+}

@@ -15,9 +15,10 @@ builder.Services.AddDbContext<AppDbContext>(
     options => options.UseMySql(conexao, versao)
 );
 
-// Serviço de identificaçãp do usuário
+// Serviço de identificação do usuário
 builder.Services.AddIdentity<Usuario, IdentityRole>(
-    options => {
+    options =>
+    {
         options.SignIn.RequireConfirmedEmail = true;
         options.User.RequireUniqueEmail = true;
     }
@@ -30,7 +31,8 @@ var app = builder.Build();
 // Garantir que o banco exista ao executar o projeto
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var db = scope.ServiceProvider
+        .GetRequiredService<AppDbContext>();
     await db.Database.EnsureCreatedAsync();
 }
 
